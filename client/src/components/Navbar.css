@@ -1,0 +1,64 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+.nav__left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nav__logo {
+  font-weight: 600;
+  color: rgb(93, 93, 93);
+  font-family: 'Josefin Sans', sans-serif;
+}
+.nav__logo span {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 30px;
+  color: rgb(0, 119, 57);
+}
+.nav__link {
+  display: flex;
+  margin-inline: 20px;
+}
+.nav__link li {
+  color: rgb(93, 93, 93);
+  margin-inline: 10px;
+}
+
+button {
+  width: 80px;
+  height: 35px;
+  border-radius: 5px;
+  border: none;
+  background-color: transparent;
+  margin-inline: 10px;
+  color: rgb(77, 77, 77);
+}
+.addRecipe {
+  border: 1px solid rgb(70, 91, 247);
+}
+.addRecipe:hover {
+  background-color: rgb(70, 91, 247);
+  color: white;
+  transition: all 100ms ease-in-out;
+  cursor: pointer;
+}
+
+.signInButton {
+  border: 1px solid rgb(70, 247, 144);
+}
+.signInButton:hover {
+  background-color: rgb(70, 247, 144);
+  color: rgb(112, 112, 112);
+  transition: all 100ms ease-in-out;
+  cursor: pointer;
+}
+.signUpButton {
+  background-color: rgb(70, 247, 144);
+}
+.signUpButton:hover {
+  background-color: rgb(12, 249, 111);
+  cursor: pointer;
+}

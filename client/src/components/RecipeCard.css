@@ -1,0 +1,46 @@
+.recipeCardContainer {
+  width: min-content;
+  height: min-content;
+}
+.recipeCard {
+  width: 250px;
+  border-radius: 20px;
+  background-color: hsl(210, 50%, 98%);
+  box-shadow: 1px 1px 5px grey;
+  margin-inline: 20px;
+}
+.recipeCard__image {
+  background-image: url('/public/food1.jpg');
+  width: 250px;
+  height: 150px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  position: relative;
+  top: -50px;
+}
+.recipeCard__main {
+  display: flex;
+  flex-direction: column;
+  align-items: space-between;
+  padding: 20px;
+}
+
+.recipeCard__main__detail {
+  margin-bottom: 40px;
+}
+
+.recipeCard:hover {
+  scale: 1.05;
+  transition: scale 300ms ease-in-out;
+}
+.recipeCard:hover .recipeCard__image {
+  box-shadow: 1px 1px 5px rgba(205, 123, 64, 0.867);
+  scale: 0.85;
+  transition: all 300ms ease-in-out;
+}
+
+.recipeCard__main__footer {
+  display: flex;
+  justify-content: space-between;
+}
