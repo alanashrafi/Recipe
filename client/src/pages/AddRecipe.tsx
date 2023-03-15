@@ -6,8 +6,8 @@ export const AddRecipe = () => {
     <div className="addPage">
       <form action="" className="addForm">
         <>
-          <label htmlFor="">Title: </label>
-          <input type="text" placeholder="Title" />
+          <label htmlFor="">Name: </label>
+          <input type="text" placeholder="Name" />
         </>
         <>
           <label htmlFor="">Summary: </label>
@@ -20,6 +20,13 @@ export const AddRecipe = () => {
         <>
           <label htmlFor="">Time: </label>
           <input type="text" placeholder="Time" />
+        </>
+        <>
+          <label htmlFor="">Category: </label>
+          <select name="" id="">
+            <option value="food">Food</option>
+            <option value="desert">Desert</option>
+          </select>
         </>
         <>
           <label htmlFor="">Method: </label>
