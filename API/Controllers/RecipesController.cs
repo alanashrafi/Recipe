@@ -58,10 +58,30 @@ public class RecipesController : ControllerBase
         }
     }
 
-    /*[HttpPut("{id}")]
+    [HttpPut("{id}/edit")]
     public IActionResult EditRecipe(int id,RecipeDto recipeDto)
     {
         var recipe = _context.Recipes.Find(id);
-    }*/
+        recipe.Name = recipeDto.Name;
+        recipe.Summary = recipeDto.Summary;
+        recipe.Portion = recipeDto.Portion;
+        recipe.Time = recipeDto.Time;
+        recipe.Category = recipeDto.Category;
+        recipe.Method = recipeDto.Method;
+        recipe.ImageUrl = recipeDto.ImageUrl;
+        _context.Update(recipe);
+        _context.SaveChanges();
+        return Ok(recipe);
+            
+    }
+
+    [HttpDelete("{id}")]
+    public IActionResult DeleteRecipe(int id)
+    {
+        _context.Remove(_context.Recipes.Single(x => x.Id == id));
+        _context.SaveChanges();
+        return Ok();
+    }
+    
     
 }

@@ -1,33 +1,21 @@
-import React, {
-  MutableRefObject,
-  SyntheticEvent,
-  useRef,
-  useState,
-} from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { SyntheticEvent, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useRecipesContext } from '../Context';
 import { Irecipes } from '../types';
-import './AddRecipe.css';
+import './EditPage.css';
 
-// {
-//   id: 0,
-//   name: '',
-//   summary: '',
-//   portion: '',
-//   time: '',
-//   imageUrl: '',
-//   category: '',
-//   method: '',
-// }
-
-export const AddRecipe = () => {
-  const [newRecipe, setNewRecipe] = useState<Irecipes>({} as Irecipes);
+export const EditPage = () => {
+  const recipes = useRecipesContext();
+  const id = useParams().id;
+  const result = recipes?.find((recipe) => recipe.id === Number(id));
+  const [newRecipe, setNewRecipe] = useState<Irecipes>(result as Irecipes);
   const navigate = useNavigate();
-  const errorMessage = useRef() as MutableRefObject<HTMLDivElement>;
+  console.log('id from edit page', id);
 
-  const add = (e: SyntheticEvent) => {
+  const edit = (e: SyntheticEvent) => {
     e.preventDefault();
-    fetch('http://localhost:5127/api/recipes', {
-      method: 'POST',
+    fetch(`http://localhost:5127/api/recipes/${id}/edit`, {
+      method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json',
@@ -35,9 +23,9 @@ export const AddRecipe = () => {
       body: JSON.stringify(newRecipe),
     }).then(() => {
       navigate('/');
+      console.log('edited');
     });
   };
-
   const handleOnChange = (e: any) => {
     const { value, name } = e.target;
     setNewRecipe((prevData) => ({
@@ -46,8 +34,8 @@ export const AddRecipe = () => {
     }));
   };
   return (
-    <div className="addPage">
-      <form action="" className="addForm" onSubmit={add}>
+    <div className="editPage">
+      <form action="" className="editForm" onSubmit={edit}>
         <>
           <input
             type="text"
@@ -117,11 +105,8 @@ export const AddRecipe = () => {
           />
         </>
 
-        <button className="formAddRecipe">Add Recipe</button>
+        <button className="formEditRecipe">Edit Recipe</button>
       </form>
-      <div ref={errorMessage} className="hide">
-        <p>Please Fill Out The Form</p>
-      </div>
     </div>
   );
 };

@@ -1,0 +1,66 @@
+.editPage {
+  width: 100%;
+  margin-top: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.editForm {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+}
+input {
+  height: 45px;
+  border-radius: 5px;
+  border: none;
+  padding: 10px;
+  margin: 10px 0;
+}
+select {
+  height: 45px;
+  border-radius: 5px;
+  border: none;
+  padding: 10px;
+  margin: 10px 0;
+}
+textarea {
+  border-radius: 5px;
+  border: none;
+  margin: 10px 0;
+  padding: 10px;
+}
+
+.formEditRecipe {
+  width: 100px;
+  height: 35px;
+  border-radius: 5px;
+  border: none;
+  background-color: rgb(53, 86, 255);
+  color: rgb(255, 255, 255);
+  margin-inline: 10px;
+  font-size: 16px;
+  margin: 20px 0;
+  align-self: flex-end;
+}
+.formEditRecipe:hover {
+  background-color: rgb(17, 53, 231);
+  cursor: pointer;
+}
+.errorMessage {
+  background-color: red;
+  max-width: 1440px;
+  width: 60vw;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 1.2rem;
+  margin: 20px auto;
+  border-radius: 5px;
+}
+.hide {
+  display: none;
+}

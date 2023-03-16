@@ -9,6 +9,7 @@ import { Foods } from './pages/Foods';
 import { Desserts } from './pages/Desserts';
 import { Details } from './pages/Details';
 import { Context } from './Context';
+import { EditPage } from './pages/EditPage';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Navbar />
           <Routes>
             <Route path="details/:id" element={<Details />}></Route>
+            <Route path="details/:id/edit" element={<EditPage />}></Route>
             <Route path="addRecipe" element={<AddRecipe />}></Route>
             <Route path="foods" element={<Foods />}></Route>
             <Route path="desserts" element={<Desserts />}></Route>

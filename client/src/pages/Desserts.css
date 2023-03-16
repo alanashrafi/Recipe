@@ -1,7 +1,18 @@
 .dessert__main {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.dessert__header {
+  width: 100%;
   height: 700px;
   background-image: url('/public/dessert.jpg');
   background-size: cover;
   background-position: right top;
+}
+.dessert__recipes {
+  display: flex;
+  margin: 100px 0;
 }
