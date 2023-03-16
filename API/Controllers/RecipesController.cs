@@ -19,7 +19,7 @@ public class RecipesController : ControllerBase
     [HttpGet]
     public ActionResult<IEnumerable<Recipe>> GetRecipes()
     {
-       return _context.Recipes.ToList();
+       return  _context.Recipes.ToList();
     }
     
     [HttpGet("{id}")]
@@ -30,14 +30,12 @@ public class RecipesController : ControllerBase
         {
             return NotFound();
         }
-
         return recipe;
     }
 
     [HttpPost]
     public  IActionResult AddRecipe(RecipeDto recipeDto)
     {
-      
         try
         {
             var newRecipe = new Recipe()
@@ -46,6 +44,7 @@ public class RecipesController : ControllerBase
                 Summary = recipeDto.Summary,
                 Portion = recipeDto.Portion,
                 Time = recipeDto.Time,
+                ImageUrl = recipeDto.ImageUrl,
                 Category = recipeDto.Category,
                 Method = recipeDto.Method
             };
@@ -57,7 +56,12 @@ public class RecipesController : ControllerBase
         {
             throw e; 
         }
-        
     }
+
+    /*[HttpPut("{id}")]
+    public IActionResult EditRecipe(int id,RecipeDto recipeDto)
+    {
+        var recipe = _context.Recipes.Find(id);
+    }*/
     
 }

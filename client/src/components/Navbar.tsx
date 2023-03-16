@@ -1,10 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Navbar.css';
 import { Link } from 'react-router-dom';
 
 export const Navbar = () => {
+  const [colorChange, setColorchange] = useState('transparent');
+  const changeNavbarColor = () => {
+    if (window.scrollY >= 40) {
+      setColorchange('white');
+    } else {
+      setColorchange('transparent');
+    }
+  };
+  window.addEventListener('scroll', changeNavbarColor);
   return (
-    <nav>
+    <nav
+      style={{
+        backgroundColor: colorChange,
+        transition: 'all 300ms ease-in-out',
+      }}
+    >
       <div className="nav__left">
         <Link to="/">
           <div className="nav__logo">
@@ -12,8 +26,12 @@ export const Navbar = () => {
           </div>
         </Link>
         <ul className="nav__link">
-          <li>Food</li>
-          <li>Desert</li>
+          <Link to="/foods">
+            <li>Food</li>
+          </Link>
+          <Link to="/desserts">
+            <li>Dessert</li>
+          </Link>
         </ul>
       </div>
       <div className="nav__right">

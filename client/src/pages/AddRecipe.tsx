@@ -1,41 +1,90 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { Irecipes } from '../types';
 import './AddRecipe.css';
 
+// {
+//   id: 0,
+//   name: '',
+//   summary: '',
+//   portion: '',
+//   time: '',
+//   imageUrl: '',
+//   category: '',
+//   method: '',
+// }
+
 export const AddRecipe = () => {
+  const [newRecipe, setNewRecipe] = useState<Irecipes>({} as Irecipes);
+
+  useEffect(() => {});
+  console.log(newRecipe);
+  const handleOnChange = (e: any) => {
+    const { value, name } = e.target;
+    setNewRecipe((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
   return (
     <div className="addPage">
       <form action="" className="addForm">
         <>
-          <label htmlFor="">Name: </label>
-          <input type="text" placeholder="Name" />
+          <input
+            type="text"
+            placeholder="Name"
+            value={newRecipe?.name}
+            name="name"
+            onChange={handleOnChange}
+          />
         </>
         <>
-          <label htmlFor="">Summary: </label>
-          <input type="text" placeholder="Summary" />
+          <input
+            type="text"
+            placeholder="Summary"
+            value={newRecipe?.summary}
+            name="summary"
+            onChange={handleOnChange}
+          />
         </>
         <>
-          <label htmlFor="">Portion: </label>
-          <input type="text" placeholder="Portion" />
+          <input
+            type="text"
+            placeholder="Portion"
+            value={newRecipe?.portion}
+            name="portion"
+            onChange={handleOnChange}
+          />
         </>
         <>
-          <label htmlFor="">Time: </label>
-          <input type="text" placeholder="Time" />
+          <input
+            type="text"
+            placeholder="Time"
+            value={newRecipe?.time}
+            name="time"
+            onChange={handleOnChange}
+          />
         </>
         <>
-          <label htmlFor="">Category: </label>
-          <select name="" id="">
+          <select
+            name="category"
+            id=""
+            value={newRecipe?.category}
+            onChange={handleOnChange}
+          >
+            <option value="">Categor</option>
             <option value="food">Food</option>
             <option value="desert">Desert</option>
           </select>
         </>
         <>
-          <label htmlFor="">Method: </label>
           <textarea
-            name=""
+            name="method"
             id=""
             cols={30}
             rows={10}
             placeholder="Method"
+            value={newRecipe?.method}
+            onChange={handleOnChange}
           ></textarea>
         </>
         <button className="formAddRecipe">Add Recipe</button>

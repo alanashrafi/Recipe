@@ -9,6 +9,9 @@
   box-shadow: 1px 1px 5px grey;
   margin-inline: 20px;
 }
+.recipeCard * {
+  color: rgb(90, 90, 90);
+}
 .recipeCard__image {
   background-image: url('/public/food1.jpg');
   width: 250px;
@@ -32,10 +35,13 @@
 
 .recipeCard:hover {
   scale: 1.05;
+  box-shadow: 1px 1px 5px rgba(32, 129, 72, 0.621);
   transition: scale 300ms ease-in-out;
+  cursor: pointer;
 }
 .recipeCard:hover .recipeCard__image {
   box-shadow: 1px 1px 5px rgba(205, 123, 64, 0.867);
+  /* box-shadow: 1px 1px 5px rgb(32, 129, 73, 0.621); */
   scale: 0.85;
   transition: all 300ms ease-in-out;
 }
