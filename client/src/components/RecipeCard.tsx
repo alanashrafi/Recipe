@@ -7,10 +7,13 @@ type Props = {
 };
 export const RecipeCard: FC<Props> = (props) => {
   return (
-    <Link to="/details">
+    <Link to={`/details/${props.recipe.id}`}>
       <div className="recipeCardContainer">
         <article className="recipeCard">
-          <figure className="recipeCard__image" />
+          <figure
+            className="recipeCard__image"
+            style={{ backgroundImage: `url(${props.recipe.imageUrl})` }}
+          />
           <div className="recipeCard__main">
             <h2 className="recipeCard__main__title">{props.recipe.name}</h2>
             <p className="recipeCard__main__detail">{props.recipe.summary}</p>

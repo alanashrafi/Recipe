@@ -17,11 +17,11 @@ function App() {
         <BrowserRouter>
           <Navbar />
           <Routes>
-            <Route path="/" element={<Main />}></Route>
+            <Route path="details/:id" element={<Details />}></Route>
             <Route path="addRecipe" element={<AddRecipe />}></Route>
             <Route path="foods" element={<Foods />}></Route>
             <Route path="desserts" element={<Desserts />}></Route>
-            <Route path="details" element={<Details />}></Route>
+            <Route path="/" element={<Main />}></Route>
           </Routes>
         </BrowserRouter>
         <Footer />

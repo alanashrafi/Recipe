@@ -1,4 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, {
+  MutableRefObject,
+  SyntheticEvent,
+  useRef,
+  useState,
+} from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Irecipes } from '../types';
 import './AddRecipe.css';
 
@@ -15,9 +21,24 @@ import './AddRecipe.css';
 
 export const AddRecipe = () => {
   const [newRecipe, setNewRecipe] = useState<Irecipes>({} as Irecipes);
+  const navigate = useNavigate();
+  const errorMessage = useRef() as MutableRefObject<HTMLDivElement>;
 
-  useEffect(() => {});
-  console.log(newRecipe);
+  const add = (e: SyntheticEvent) => {
+    e.preventDefault();
+    fetch('http://localhost:5127/api/recipes', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+      body: JSON.stringify(newRecipe),
+    }).then(() => {
+      navigate('/');
+      setNewRecipe({} as Irecipes);
+    });
+  };
+
   const handleOnChange = (e: any) => {
     const { value, name } = e.target;
     setNewRecipe((prevData) => ({
@@ -27,7 +48,7 @@ export const AddRecipe = () => {
   };
   return (
     <div className="addPage">
-      <form action="" className="addForm">
+      <form action="" className="addForm" onSubmit={add}>
         <>
           <input
             type="text"
@@ -71,7 +92,7 @@ export const AddRecipe = () => {
             value={newRecipe?.category}
             onChange={handleOnChange}
           >
-            <option value="">Categor</option>
+            <option value="">Category</option>
             <option value="food">Food</option>
             <option value="desert">Desert</option>
           </select>
@@ -87,8 +108,21 @@ export const AddRecipe = () => {
             onChange={handleOnChange}
           ></textarea>
         </>
+        <>
+          <input
+            type="text"
+            placeholder="Image Url"
+            value={newRecipe?.imageUrl}
+            name="imageUrl"
+            onChange={handleOnChange}
+          />
+        </>
+
         <button className="formAddRecipe">Add Recipe</button>
       </form>
+      <div ref={errorMessage} className="hide">
+        <p>Please Fill Out The Form</p>
+      </div>
     </div>
   );
 };
