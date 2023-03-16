@@ -15,10 +15,11 @@ nav {
 .nav__logo {
   font-weight: 600;
   color: rgb(93, 93, 93);
-  font-family: 'Josefin Sans', sans-serif;
+  /* font-family: 'Josefin Sans', sans-serif; */
+  font-family: 'Stick No Bills', sans-serif;
 }
 .nav__logo span {
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: 'Stick No Bills', sans-serif;
   font-size: 30px;
   color: rgb(0, 119, 57);
 }

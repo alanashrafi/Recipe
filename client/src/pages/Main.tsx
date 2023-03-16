@@ -7,6 +7,14 @@ import { useState } from 'react';
 export const Main = () => {
   const result = useRecipesContext();
   const [search, setSearch] = useState<string>('');
+  function returnAllRecipes() {
+    result?.map((recipe, index) => <RecipeCard key={index} recipe={recipe} />);
+  }
+  function filtered() {
+    result?.filter((recipe, index) => {
+      recipe.name.includes(search);
+    });
+  }
 
   return (
     <main>
