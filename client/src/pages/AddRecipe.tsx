@@ -21,6 +21,7 @@ import './AddRecipe.css';
 
 export const AddRecipe = () => {
   const [newRecipe, setNewRecipe] = useState<Irecipes>({} as Irecipes);
+  const [added, setAdded] = useState('');
   const navigate = useNavigate();
   const errorMessage = useRef() as MutableRefObject<HTMLDivElement>;
 
@@ -34,6 +35,7 @@ export const AddRecipe = () => {
       },
       body: JSON.stringify(newRecipe),
     }).then(() => {
+      setAdded('Succesfull added');
       navigate('/');
     });
   };
@@ -93,7 +95,7 @@ export const AddRecipe = () => {
           >
             <option value="">Category</option>
             <option value="food">Food</option>
-            <option value="dessert">Desert</option>
+            <option value="dessert">Dessert</option>
           </select>
         </>
         <>

@@ -8,9 +8,9 @@ export const Foods = () => {
 
   console.log(desserts);
   return (
-    <div className="dessert__main">
-      <div className="dessert__header"></div>
-      <div className="recipes">
+    <div className="food__main">
+      <div className="food__header"></div>
+      <div className="food__recipes">
         {desserts
           ?.filter((recipe) => recipe.category === 'food')
           .map((recipe) => (

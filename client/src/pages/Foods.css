@@ -1,3 +1,37 @@
-.dessert__header {
-  margin-bottom: 100px;
+.food__main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.food__header {
+  width: 100%;
+  height: 700px;
+  background-image: url('/public/food2.jpg');
+  background-size: cover;
+  background-position: right top;
+}
+.food__recipes {
+  display: flex;
+  margin: 100px 0;
+}
+
+@media only screen and (min-width: 650px) {
+  .recipes {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+  }
+}
+@media only screen and (min-width: 930px) {
+  .recipes {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+  }
+}
+@media only screen and (min-width: 1240px) {
+  .recipes {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+  }
 }

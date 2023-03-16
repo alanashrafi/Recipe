@@ -24,20 +24,20 @@ export const Details = () => {
   return (
     <div className="detailContainer">
       <div className="detail__header">
-        <h2>{result?.name}</h2>
+        <h2 className="detail__header__title">{result?.name}</h2>
         <h3>{result?.summary}</h3>
         <img src={result?.imageUrl} alt="" className="detailImg" />
       </div>
       <div className="detail__main">
-        <section>
-          <h3>Portion</h3>
-          <h4>{result?.portion}</h4>
-          <h3>Time</h3>
-          <h4>{result?.time}</h4>
+        <section className="detail__main__left">
+          <h3 className="detail__main__titles">Portion</h3>
+          <h4>{result?.portion} person</h4>
+          <h3 className="detail__main__titles">Time</h3>
+          <h4>{result?.time} minutes</h4>
         </section>
-        <section>
-          <h2>Method</h2>
-          <h4>{result?.method}</h4>
+        <section className="detail__main__right">
+          <h2 className="detail__main__titles">Method</h2>
+          <h4 className="detail__main__method">{result?.method}</h4>
         </section>
       </div>
       <div className="detail__footer">

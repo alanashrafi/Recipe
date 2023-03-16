@@ -81,7 +81,7 @@ export const EditPage = () => {
           >
             <option value="">Category</option>
             <option value="food">Food</option>
-            <option value="dessert">Desert</option>
+            <option value="dessert">Dessert</option>
           </select>
         </>
         <>

@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Lemon&family=Josefin+Sans:wght@300;400&family=Dancing+Script:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amita:wght@400;700&family=Arima+Madurai:wght@300;400&family=Dancing+Script&family=Poiret+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Livvic:ital,wght@0,300;0,400;1,300&display=swap');
 
 * {
   margin: 0;
@@ -22,6 +24,8 @@ li {
     rgba(223, 231, 236, 1) 100%
   );
   color: grey;
+  max-width: 1440px;
+  margin: auto;
 }
 
 .App-logo {

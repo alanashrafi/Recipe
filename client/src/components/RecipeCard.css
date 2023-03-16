@@ -26,9 +26,13 @@
   display: flex;
   flex-direction: column;
   align-items: space-between;
+  justify-self: end;
   padding: 20px;
 }
-
+.recipeCard__main__title {
+  margin-top: -40px;
+  margin-bottom: 10px;
+}
 .recipeCard__main__detail {
   margin-bottom: 40px;
 }
@@ -49,4 +53,6 @@
 .recipeCard__main__footer {
   display: flex;
   justify-content: space-between;
+  border-top: 1px solid grey;
+  padding-top: 10px;
 }

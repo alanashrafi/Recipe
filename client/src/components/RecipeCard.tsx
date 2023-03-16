@@ -19,11 +19,11 @@ export const RecipeCard: FC<Props> = (props) => {
             <p className="recipeCard__main__detail">{props.recipe.summary}</p>
             <div className="recipeCard__main__footer">
               <div className="recipeCard__main__footer__portion">
-                <p>Portion</p>
+                <h4>Portion</h4>
                 <p>{props.recipe.portion} person</p>
               </div>
               <div className="recipeCard__main__footer__time">
-                <p>Time</p>
+                <h4>Time</h4>
                 <p>{props.recipe.time} minutes</p>
               </div>
             </div>

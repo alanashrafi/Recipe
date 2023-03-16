@@ -4,21 +4,30 @@
   background-image: url('/public/hero1.jpg');
   background-size: cover;
   background-position: right top;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
 }
 .hero__title {
-  position: relative;
+  /* position: relative;
   top: 30%;
-  right: 100px;
+  right: 100px; */
   text-align: right;
   font-size: 40px;
+  margin-right: 100px;
+
   font-family: 'Dancing Script', cursive;
   color: rgb(77, 77, 77);
 }
 .hero__paragraph {
-  position: relative;
+  /* position: relative;
   top: 30%;
-  right: 100px;
+  right: 100px; */
   margin-top: 20px;
+  margin-right: 100px;
+  width: 400px;
+
   text-align: right;
 }
 
