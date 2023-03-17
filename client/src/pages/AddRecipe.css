@@ -44,8 +44,24 @@ textarea {
   margin: 20px 0;
   align-self: flex-end;
 }
+.formBackRecipe {
+  width: 100px;
+  height: 35px;
+  border-radius: 5px;
+  border: none;
+  background-color: rgb(29, 50, 202);
+  color: white;
+  margin-inline: 10px;
+  font-size: 16px;
+  margin: 20px 0;
+  align-self: flex-end;
+}
 .formAddRecipe:hover {
-  background-color: rgb(24, 253, 119);
+  background-color: rgb(0, 230, 96);
+  cursor: pointer;
+}
+.formBackRecipe:hover {
+  background-color: rgb(21, 35, 144);
   cursor: pointer;
 }
 .errorMessage {
@@ -63,4 +79,9 @@ textarea {
 }
 .hide {
   display: none;
+}
+
+.addRecipeFooter {
+  display: flex;
+  justify-content: space-between;
 }

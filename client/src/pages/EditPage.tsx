@@ -1,6 +1,6 @@
 import React, { SyntheticEvent, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { useRecipesContext } from '../Context';
+import { useRecipesContext, UserefreshContext } from '../Context';
 import { Irecipes } from '../types';
 import './EditPage.css';
 
@@ -9,6 +9,7 @@ export const EditPage = () => {
   const id = useParams().id;
   const result = recipes?.find((recipe) => recipe.id === Number(id));
   const [newRecipe, setNewRecipe] = useState<Irecipes>(result as Irecipes);
+  const updatePage = UserefreshContext();
   const navigate = useNavigate();
   console.log('id from edit page', id);
 
@@ -22,8 +23,8 @@ export const EditPage = () => {
       },
       body: JSON.stringify(newRecipe),
     }).then(() => {
+      updatePage('updated');
       navigate('/');
-      console.log('edited');
     });
   };
   const handleOnChange = (e: any) => {

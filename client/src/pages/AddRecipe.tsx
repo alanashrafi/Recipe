@@ -5,6 +5,7 @@ import React, {
   useState,
 } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { UserefreshContext } from '../Context';
 import { Irecipes } from '../types';
 import './AddRecipe.css';
 
@@ -21,12 +22,20 @@ import './AddRecipe.css';
 
 export const AddRecipe = () => {
   const [newRecipe, setNewRecipe] = useState<Irecipes>({} as Irecipes);
-  const [added, setAdded] = useState('');
+  // const [updated, setUpdated] = useState('');
   const navigate = useNavigate();
   const errorMessage = useRef() as MutableRefObject<HTMLDivElement>;
-
+  const isEmpty = Object.values(newRecipe).every((x) => x === null || x === '');
+  const updatePage = UserefreshContext();
   const add = (e: SyntheticEvent) => {
     e.preventDefault();
+    if (isEmpty) {
+      errorMessage.current.className = 'errorMessage';
+      setTimeout(() => {
+        errorMessage.current.className = 'hide';
+      }, 2000);
+      return;
+    }
     fetch('http://localhost:5127/api/recipes', {
       method: 'POST',
       headers: {
@@ -35,7 +44,7 @@ export const AddRecipe = () => {
       },
       body: JSON.stringify(newRecipe),
     }).then(() => {
-      setAdded('Succesfull added');
+      updatePage('Post successfull');
       navigate('/');
     });
   };
@@ -118,8 +127,12 @@ export const AddRecipe = () => {
             onChange={handleOnChange}
           />
         </>
-
-        <button className="formAddRecipe">Add Recipe</button>
+        <div className="addRecipeFooter">
+          <button className="formBackRecipe" onClick={() => navigate('/')}>
+            Back
+          </button>
+          <button className="formAddRecipe">Add Recipe</button>
+        </div>
       </form>
       <div ref={errorMessage} className="hide">
         <p>Please Fill Out The Form</p>

@@ -7,14 +7,14 @@ import { useState } from 'react';
 export const Main = () => {
   const result = useRecipesContext();
   const [search, setSearch] = useState<string>('');
-  function returnAllRecipes() {
-    result?.map((recipe, index) => <RecipeCard key={index} recipe={recipe} />);
-  }
-  function filtered() {
-    result?.filter((recipe, index) => {
-      recipe.name.includes(search);
-    });
-  }
+  // function returnAllRecipes() {
+  //   result?.map((recipe, index) => <RecipeCard key={index} recipe={recipe} />);
+  // }
+  // function filtered() {
+  //   result?.filter((recipe, index) => {
+  //     recipe.name.includes(search);
+  //   });
+  // }
 
   return (
     <main>
@@ -27,15 +27,16 @@ export const Main = () => {
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
-        <button className="searchButton">Search</button>
+        {/* <button className="searchButton">Search</button> */}
       </section>
       <section className="recipes">
         {result
           ?.filter((recipe) => {
-            if (search === '') {
-              return true;
+            if (search.length > 0) {
+              return recipe.name.toLowerCase().match(search.toLowerCase());
+            } else {
+              return recipe;
             }
-            return search;
           })
           .map((recipe, index) => (
             <RecipeCard key={index} recipe={recipe} />
