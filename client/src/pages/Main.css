@@ -14,7 +14,7 @@ main {
 .searchSection {
   position: relative;
   top: -40px;
-  width: 60%;
+  width: 90%;
   height: 90px;
   background-color: white;
   border-radius: 5px;
@@ -25,7 +25,7 @@ main {
   box-shadow: 1px 1px 5px rgb(143, 143, 143);
 }
 .searchInput {
-  width: 60%;
+  width: 80%;
   height: 40px;
   border-radius: 5px;
   border: 1px solid grey;
@@ -63,5 +63,8 @@ main {
   .recipes {
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: auto;
+  }
+  .searchSection {
+    width: 60%;
   }
 }

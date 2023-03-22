@@ -36,12 +36,9 @@ export const AddRecipe = () => {
       }, 2000);
       return;
     }
-    fetch('http://localhost:5127/api/recipes', {
+    fetch('https://recipe.azurewebsites.net/api/recipes', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-      },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(newRecipe),
     }).then(() => {
       updatePage('Post successfull');

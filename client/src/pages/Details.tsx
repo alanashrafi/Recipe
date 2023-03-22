@@ -14,7 +14,7 @@ export const Details = () => {
 
   const deleteRecipe = (e: SyntheticEvent) => {
     e.preventDefault();
-    fetch(`http://localhost:5127/api/recipes/${id}`, {
+    fetch(`https://recipe.azurewebsites.net/api/recipes/${id}`, {
       method: 'DELETE',
     }).then(() => {
       updatePage('updated');
@@ -30,10 +30,14 @@ export const Details = () => {
       </div>
       <div className="detail__main">
         <section className="detail__main__left">
-          <h3 className="detail__main__titles">Portion</h3>
-          <h4>{result?.portion} person</h4>
-          <h3 className="detail__main__titles">Time</h3>
-          <h4>{result?.time} minutes</h4>
+          <div>
+            <h3 className="detail__main__titles">Portion</h3>
+            <h4>{result?.portion} person</h4>
+          </div>
+          <div>
+            <h3 className="detail__main__titles">Time</h3>
+            <h4>{result?.time} minutes</h4>
+          </div>
         </section>
         <section className="detail__main__right">
           <h2 className="detail__main__titles">Method</h2>

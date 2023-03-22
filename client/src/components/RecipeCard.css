@@ -3,7 +3,6 @@
   height: min-content;
 }
 .recipeCard {
-  width: 250px;
   border-radius: 20px;
   background-color: hsl(210, 50%, 98%);
   box-shadow: 1px 1px 5px grey;

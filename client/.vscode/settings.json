@@ -1,0 +1,4 @@
+{
+  "appService.defaultWebAppToDeploy": "/subscriptions/cb10fe24-2b7f-424e-865a-656b4fbcaec0/resourceGroups/recipe_group/providers/Microsoft.Web/sites/recipeclient",
+  "appService.deploySubpath": "build"
+}

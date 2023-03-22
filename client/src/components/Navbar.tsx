@@ -42,8 +42,8 @@ export const Navbar = () => {
           <button className="addRecipe">Add Recipe</button>
         </Link>
 
-        <button className="signInButton">Sign In</button>
-        <button className="signUpButton">Sign Up</button>
+        {/* <button className="signInButton">Sign In</button>
+        <button className="signUpButton">Sign Up</button> */}
       </div>
     </nav>
   );

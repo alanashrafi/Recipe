@@ -3,6 +3,7 @@
   height: 650px;
   background-image: url('/public/hero1.jpg');
   background-size: cover;
+  background-repeat: no-repeat;
   background-position: right top;
   display: flex;
   flex-direction: column;
@@ -15,7 +16,7 @@
   right: 100px; */
   text-align: right;
   font-size: 40px;
-  margin-right: 100px;
+  margin-right: 50px;
 
   font-family: 'Dancing Script', cursive;
   color: rgb(77, 77, 77);
@@ -25,12 +26,22 @@
   top: 30%;
   right: 100px; */
   margin-top: 20px;
-  margin-right: 100px;
-  width: 400px;
+  margin-right: 50px;
+  width: 250px;
 
   text-align: right;
 }
 
 .hero__title span {
   color: rgb(70, 247, 144);
+}
+
+@media only screen and (min-width: 930px) {
+  .hero__title {
+    margin-right: 100px;
+  }
+  .hero__paragraph {
+    margin-right: 100px;
+    width: 400px;
+  }
 }

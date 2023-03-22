@@ -2,7 +2,8 @@ nav {
   width: 100%;
   max-width: 1440px;
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
+  justify-content: center;
   padding: 20px;
   position: fixed;
   z-index: 10;
@@ -17,6 +18,7 @@ nav {
   color: rgb(93, 93, 93);
   /* font-family: 'Josefin Sans', sans-serif; */
   font-family: 'Stick No Bills', sans-serif;
+  padding-left: 10px;
 }
 .nav__logo span {
   font-family: 'Stick No Bills', sans-serif;
@@ -25,7 +27,7 @@ nav {
 }
 .nav__link {
   display: flex;
-  margin-inline: 20px;
+  margin-inline: 10px;
 }
 .nav__link li {
   color: rgb(93, 93, 93);
@@ -70,4 +72,13 @@ button {
 .signUpButton:hover {
   background-color: rgb(12, 249, 111);
   cursor: pointer;
+}
+
+@media only screen and (min-width: 650px) {
+  nav {
+    justify-content: space-between;
+  }
+  .nav__link {
+    margin-inline: 20px;
+  }
 }

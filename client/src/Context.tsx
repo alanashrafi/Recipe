@@ -33,7 +33,7 @@ export const Context = ({ children }: any) => {
 
   //console.log('recipes in context', recipes);
   useEffect(() => {
-    fetchApi('http://localhost:5127/api/recipes/').then((data) =>
+    fetchApi('https://recipe.azurewebsites.net/api/recipes').then((data) =>
       setrecipes(data.$values)
     );
   }, [updated]);

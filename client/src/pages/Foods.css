@@ -4,6 +4,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  /* background: linear-gradient(
+    90deg,
+    rgba(244, 248, 249, 1) 0%,
+    rgba(223, 231, 236, 1) 100%
+  ); */
 }
 .food__header {
   width: 100%;
@@ -11,7 +16,8 @@
   margin-bottom: 100px;
   background-image: url('/public/food2.jpg');
   background-size: cover;
-  background-position: right top;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 .food__recipes {
   display: grid;

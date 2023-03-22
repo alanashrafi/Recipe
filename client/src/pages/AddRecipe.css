@@ -9,7 +9,7 @@
 .addForm {
   display: flex;
   flex-direction: column;
-  width: 60%;
+  width: 80%;
 }
 input {
   height: 45px;
@@ -84,4 +84,10 @@ textarea {
 .addRecipeFooter {
   display: flex;
   justify-content: space-between;
+}
+
+@media only screen and (min-width: 650px) {
+  .addForm {
+    width: 60%;
+  }
 }

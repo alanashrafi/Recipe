@@ -15,12 +15,9 @@ export const EditPage = () => {
 
   const edit = (e: SyntheticEvent) => {
     e.preventDefault();
-    fetch(`http://localhost:5127/api/recipes/${id}/edit`, {
+    fetch(`https://recipe.azurewebsites.net/api/recipes/${id}/edit`, {
       method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-      },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(newRecipe),
     }).then(() => {
       updatePage('updated');

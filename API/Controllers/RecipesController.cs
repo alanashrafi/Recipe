@@ -2,8 +2,10 @@ using API.Data;
 using API.Models;
 using API.Models.Dto;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers;
+
 
 [ApiController]
 [Route("/api/recipes/")]
@@ -17,15 +19,20 @@ public class RecipesController : ControllerBase
     }
 
     [HttpGet]
-    public ActionResult<IEnumerable<Recipe>> GetRecipes()
+    public async Task<ActionResult<IEnumerable<Recipe>>> GetRecipes()
     {
-       return  _context.Recipes.ToList();
+        if(_context.Recipes == null) {
+            return NotFound();
+        }
+        return await _context.Recipes.ToListAsync();
+       
+ 
     }
     
     [HttpGet("{id}")]
-    public ActionResult<Recipe> GetRecipeById(int id)
+    public async Task<ActionResult<Recipe>> GetRecipeById(int id)
     {
-        var recipe = _context.Recipes.Find(id);
+        var recipe = await _context.Recipes.FindAsync(id);
         if (recipe == null)
         {
             return NotFound();
@@ -34,7 +41,7 @@ public class RecipesController : ControllerBase
     }
 
     [HttpPost]
-    public  IActionResult AddRecipe(RecipeDto recipeDto)
+    public async Task<IActionResult> AddRecipe(RecipeDto recipeDto)
     {
         try
         {
@@ -48,8 +55,8 @@ public class RecipesController : ControllerBase
                 Category = recipeDto.Category,
                 Method = recipeDto.Method
             };
-            _context.Recipes.Add(newRecipe);
-            _context.SaveChanges();
+            await _context.Recipes.AddAsync(newRecipe);
+            await _context.SaveChangesAsync();
             return Ok();
         }
         catch (Exception e)
@@ -59,7 +66,7 @@ public class RecipesController : ControllerBase
     }
 
     [HttpPut("{id}/edit")]
-    public IActionResult EditRecipe(int id,RecipeDto recipeDto)
+    public async Task<IActionResult> EditRecipe(int id,RecipeDto recipeDto)
     {
         var recipe = _context.Recipes.Find(id);
         recipe.Name = recipeDto.Name;
@@ -70,16 +77,16 @@ public class RecipesController : ControllerBase
         recipe.Method = recipeDto.Method;
         recipe.ImageUrl = recipeDto.ImageUrl;
         _context.Update(recipe);
-        _context.SaveChanges();
+        await _context.SaveChangesAsync();
         return Ok(recipe);
             
     }
 
     [HttpDelete("{id}")]
-    public IActionResult DeleteRecipe(int id)
+    public async Task<IActionResult> DeleteRecipe(int id)
     {
         _context.Remove(_context.Recipes.Single(x => x.Id == id));
-        _context.SaveChanges();
+        await _context.SaveChangesAsync();
         return Ok();
     }
     
